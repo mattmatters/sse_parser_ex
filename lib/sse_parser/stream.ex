@@ -5,11 +5,10 @@ defmodule SseParser.Stream do
 
   @moduledoc since: "3.1.0"
 
-  use TypedStruct
-  use TsAccess
+  @type t :: %__MODULE__{
+          last_event_id: String.t() | nil,
+          retry: non_neg_integer | nil
+        }
 
-  typedstruct do
-    field :last_event_id, String.t()
-    field :retry, integer()
-  end
+  defstruct last_event_id: nil, retry: nil
 end

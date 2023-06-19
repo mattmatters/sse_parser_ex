@@ -5,13 +5,12 @@ defmodule SseParser.Event do
 
   @moduledoc since: "2.0.0"
 
-  use TypedStruct
-  use TsAccess
+  @type t :: %__MODULE__{
+          id: String.t(),
+          event: String.t(),
+          data: String.t(),
+          retry: non_neg_integer | nil
+        }
 
-  typedstruct do
-    field :id, String.t()
-    field :event, String.t()
-    field :data, String.t()
-    field :retry, integer()
-  end
+  defstruct [:id, :event, :data, :retry]
 end
