@@ -197,7 +197,7 @@ defmodule SseParser do
       iex> SseParser.streamify(%Stream{}, [
       iex>  %SseParser.Event{
       iex>     id: "1",
-      iex>     event: "a"     
+      iex>     event: "a"
       iex>  },
       iex>  %SseParser.Event{
       iex>     event: "b",
@@ -206,9 +206,9 @@ defmodule SseParser do
       iex>])
       {
         [
-          %SseParser.Event{id: "1", event: "a"}, 
+          %SseParser.Event{id: "1", event: "a"},
           %SseParser.Event{id: "1", event: "b", retry: 2345}
-        ], 
+        ],
         %SseParser.Stream{last_event_id: "1", retry: 2345}
       }
   """
